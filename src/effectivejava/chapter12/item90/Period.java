@@ -43,6 +43,10 @@ public final class Period implements Serializable {
 
         private static final long serialVersionUID =
                 234098243823485285L; // Any number will do (Item 87)
+
+        private Object readResolve() {
+            return new Period(start, end); // Uses public constructor
+        }
     }
 
     // writeReplace method for the serialization proxy pattern
